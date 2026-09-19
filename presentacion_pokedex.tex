@@ -6,6 +6,7 @@
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{xurl} % Permite saltos de línea automáticos en URLs largas
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \usepackage{listings}
@@ -13,6 +14,7 @@
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{booktabs}
+\usepackage{tabularx} % Ajusta la tabla automáticamente al ancho del texto
 
 % --- Colores Personalizados ---
 \definecolor{upseBlue}{RGB}{14, 56, 122}
@@ -114,7 +116,7 @@ El objetivo de esta práctica es desarrollar una aplicación web interactiva uti
 
 \subsection*{Requisitos Cumplidos}
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Consumo de API REST:} Consulta directa al endpoint \href{https://pokeapi.co/api/v2/pokemon?limit=151}{\texttt{https://pokeapi.co/api/v2/pokemon?limit=151}}.
+    \item \textbf{Consumo de API REST:} Consulta directa al endpoint \url{https://pokeapi.co/api/v2/pokemon?limit=151}.
     \item \textbf{Filtrado y Búsqueda Reactiva:} Búsqueda instantánea por nombre/ID y filtrado por tipos elementales.
     \item \textbf{Detalle Extendido (Modal):} Consulta y renderizado de estadísticas base (HP, Ataque, Defensa, etc.), habilidades, peso y altura.
     \item \textbf{Módulo de Equipo (Team Builder):} Selección interactiva de un equipo de hasta 6 Pokémon.
@@ -125,7 +127,7 @@ El objetivo de esta práctica es desarrollar una aplicación web interactiva uti
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{@{}lll@{}}
+\begin{tabularx}{\textwidth}{@{}l l X@{}}
 \toprule
 \textbf{Componente / Rol} & \textbf{Tecnología} & \textbf{Propósito} \\ \midrule
 Frontend Library & React 19 + TypeScript & Componentes funcionales tipados y hooks reactivos \\
@@ -134,7 +136,7 @@ Framework de Estilos & Tailwind CSS 4 & Diseño modular responsivo \\
 Iconos & Lucide React & Iconografía SVG moderna \\
 Fuente de Datos & PokeAPI v2 & Consumo REST asíncrono con caché en memoria \\
 Control de Versiones & Git \& GitHub & Gestión de ramas y flujo de trabajo \\ \bottomrule
-\end{tabular}
+\end{tabularx}
 \caption{Tecnologías y herramientas utilizadas}
 \end{table}
 
