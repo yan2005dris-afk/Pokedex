@@ -15,6 +15,7 @@
 \usepackage{titlesec}
 \usepackage{booktabs}
 \usepackage{tabularx} % Ajusta la tabla automáticamente al ancho del texto
+\usepackage{float}    % Permite el uso de [H] para fijar la posición exacta de las figuras
 
 % --- Colores Personalizados ---
 \definecolor{upseBlue}{RGB}{14, 56, 122}
@@ -126,7 +127,7 @@ El objetivo de esta práctica es desarrollar una aplicación web interactiva uti
 
 \section{Stack Tecnológico y Arquitectura}
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabularx}{\textwidth}{@{}l l X@{}}
 \toprule
@@ -185,7 +186,7 @@ pnpm run dev   # o: npm run dev
 \section{Evidencias de Funcionamiento (Capturas de Pantalla)}
 
 \subsection{1. Catálogo Principal de Pokémon (151 Pokémon)}
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \IfFileExists{capturas/01_catalogo.png}{
         \includegraphics[width=0.92\textwidth]{capturas/01_catalogo.png}
@@ -199,7 +200,7 @@ pnpm run dev   # o: npm run dev
 \end{figure}
 
 \subsection{2. Búsqueda y Filtrado por Tipo}
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \IfFileExists{capturas/02_filtros.png}{
         \includegraphics[width=0.92\textwidth]{capturas/02_filtros.png}
@@ -215,7 +216,7 @@ pnpm run dev   # o: npm run dev
 \newpage
 
 \subsection{3. Modal de Estadísticas y Detalle}
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \IfFileExists{capturas/03_modal_detalle.png}{
         \includegraphics[width=0.9\textwidth]{capturas/03_modal_detalle.png}
@@ -229,7 +230,7 @@ pnpm run dev   # o: npm run dev
 \end{figure}
 
 \subsection{4. Panel de Gestión de Equipo (Team Drawer)}
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \IfFileExists{capturas/04_team_drawer.png}{
         \includegraphics[width=0.9\textwidth]{capturas/04_team_drawer.png}
