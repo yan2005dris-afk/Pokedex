@@ -1,9 +1,9 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[12pt,a4paper]{article}
 
 % --- Paquetes Esenciales ---
 \usepackage[utf8]{inputenc}
 \usepackage[spanish,es-nodecimaldot]{babel}
-\usepackage[margin=2.2cm]{geometry}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{xcolor}
@@ -15,31 +15,22 @@
 \usepackage{booktabs}
 
 % --- Colores Personalizados ---
+\definecolor{upseBlue}{RGB}{14, 56, 122}
 \definecolor{pokeRed}{RGB}{238, 21, 21}
 \definecolor{pokeDark}{RGB}{33, 33, 33}
 \definecolor{pokeBlue}{RGB}{59, 76, 202}
-\definecolor{pokeGold}{RGB}{255, 203, 5}
 \definecolor{codeBg}{RGB}{245, 247, 250}
 \definecolor{codeBorder}{RGB}{220, 224, 230}
 
 % --- Configuración de Enlaces e Hipervínculos ---
 \hypersetup{
     colorlinks=true,
-    linkcolor=pokeRed,
+    linkcolor=upseBlue,
     filecolor=pokeBlue,
     urlcolor=pokeBlue,
-    pdftitle={Reporte de Proyecto: Pokédex React API},
-    pdfpagemode=FullScreen,
+    pdftitle={Práctica Frontend: Pokédex React API},
+    pdfauthor={Rivera Torres Yandris Miguel}
 }
-
-% --- Estilos de Cabecera y Pie de Página ---
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\textbf{Pokédex App} | Consumo de API REST}
-\fancyhead[R]{\thepage}
-\fancyfoot[C]{\footnotesize Desarrollo de Software - Frontend React \& PokeAPI}
-\renewcommand{\headrulewidth}{0.8pt}
-\renewcommand{\footrulewidth}{0.4pt}
 
 % --- Configuración de Bloques de Código ---
 \lstset{
@@ -56,166 +47,204 @@
     tabsize=2
 }
 
-% --- Estilo de Cajas de Información ---
+% --- Estilo de Cajas ---
 \tcbset{
     colback=white,
-    colframe=pokeRed,
-    arc=4mm,
-    boxrule=1.2pt,
-    leftrule=5mm
+    colframe=upseBlue,
+    arc=3mm,
+    boxrule=1.2pt
 }
 
 \begin{document}
 
-% --- PORTADA / ENCABEZADO ---
-\begin{center}
-    {\Huge \textbf{\color{pokeRed} Pokédex React - Consumo de REST API}} \\[0.3cm]
-    {\large \textbf{Presentación y Evidencia de Implementación}} \\[0.2cm]
-    \rule{\linewidth}{1.2pt} \\[0.3cm]
-    \begin{tabular}{ll}
-        \textbf{Autor / Estudiante:} & [Tu Nombre Completo] \\
-        \textbf{Materia / Curso:} & Desarrollo Web / Frontend \\
-        \textbf{Fecha:} & \today \\
-        \textbf{Repositorio GitHub:} & \href{https://github.com/yan2005dris-afk/Pokedex.git}{\texttt{https://github.com/yan2005dris-afk/Pokedex.git}} \\
-        \textbf{Endpoint Base API:} & \href{https://pokeapi.co/api/v2/pokemon?limit=151}{\texttt{https://pokeapi.co/api/v2/pokemon?limit=151}} \\
-    \end{tabular}
-\end{center}
+% ==========================================
+%           CARÁTULA INSTITUCIONAL
+% ==========================================
+\begin{titlepage}
+    \centering
+    \IfFileExists{logo_upse.png}{
+        \includegraphics[width=0.32\textwidth]{logo_upse.png}\\[0.4cm]
+    }{
+        \vspace*{1cm}
+    }
+    
+    {\Large \textbf{UNIVERSIDAD ESTATAL PENÍNSULA DE SANTA ELENA}}\\[0.2cm]
+    {\large \textbf{FACULTAD DE SISTEMAS Y TELECOMUNICACIONES}}\\[0.2cm]
+    {\large \textbf{CARRERA DE SOFTWARE}}\\[0.8cm]
+    
+    \rule{\linewidth}{1.5pt}\\[0.4cm]
+    {\large \textbf{ASIGNATURA:}} \\[0.1cm]
+    {\Large \textbf{\color{upseBlue} FRAMEWORK}}\\[0.4cm]
+    
+    {\large \textbf{TEMA:}} \\[0.1cm]
+    {\Large \textbf{Desarrollo de Interfaz en React con Consumo de PokéAPI}}\\[0.3cm]
+    \rule{\linewidth}{1.5pt}\\[1cm]
+    
+    \begin{minipage}{0.9\textwidth}
+        \large
+        \textbf{ELABORADO POR:} \\[0.1cm]
+        \hspace*{0.5cm} RIVERA TORRES YANDRIS MIGUEL \\[0.4cm]
+        \textbf{CURSO Y PARALELO:} \\[0.1cm]
+        \hspace*{0.5cm} SOFTWARE 7/1 \\[0.4cm]
+        \textbf{DOCENTE:} \\[0.1cm]
+        \hspace*{0.5cm} ING. CARLOS EDUARDO MUÑOZ MENDOZA \\[0.4cm]
+        \textbf{REPOSITORIO GITHUB:} \\[0.1cm]
+        \hspace*{0.5cm} \href{https://github.com/yan2005dris-afk/Pokedex.git}{\texttt{https://github.com/yan2005dris-afk/Pokedex.git}}
+    \end{minipage}
+    
+    \vfill
+    {\textbf{LA LIBERTAD -- ECUADOR}}\\[0.1cm]
+    {\textbf{2026}}
+\end{titlepage}
 
-\vspace{0.3cm}
+% --- Estilos de Cabecera y Pie de Página ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{UPSE} | Framework - React PokéAPI}
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{\footnotesize Carrera de Software -- Universidad Estatal Península de Santa Elena}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.4pt}
 
-% --- SECCIÓN 1: OBJETIVOS Y DESCRIPCIÓN ---
-\section{Descripción del Software y Objetivos}
+% ==========================================
+%           CUERPO DEL INFORME
+% ==========================================
 
-El presente proyecto consiste en el desarrollo de una aplicación web interactiva desarrollada con el framework \textbf{React 19}, \textbf{TypeScript} y \textbf{Tailwind CSS 4}, empaquetada mediante \textbf{Vite}. La aplicación consume en tiempo real los datos proporcionados por la API pública de Pokémon (\textit{PokéAPI}), consultando y procesando la información de los primeros \textbf{151 Pokémon} (Generación I).
+\section{Introducción y Objetivos del Proyecto}
 
-\subsection*{Funcionalidades Clave Implementadas}
+El objetivo de esta práctica es desarrollar una aplicación web interactiva utilizando el framework \textbf{React 19} con \textbf{TypeScript} y \textbf{Tailwind CSS 4} montado sobre \textbf{Vite}. La interfaz consume los datos en tiempo real de la API pública REST de Pokémon (\textit{PokéAPI}), gestionando la consulta y renderizado de los primeros \textbf{151 Pokémon}.
+
+\subsection*{Requisitos Cumplidos}
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Carga y Paginación/Batching Asíncrono:} Consumo de los 151 Pokémon iniciales utilizando \texttt{fetch} con procesamiento concurrente por bloques y almacenamiento en caché en memoria para evitar saturación de red.
-    \item \textbf{Búsqueda y Filtrado Dinámico:} Búsqueda en tiempo real por nombre/ID y filtrado por tipos elementales (Fuego, Agua, Planta, Eléctrico, etc.).
-    \item \textbf{Vista de Detalle (Modal):} Consulta detallada con estadísticas base (HP, Ataque, Defensa, Velocidad, etc.), tipos, peso, altura y habilidades.
-    \item \textbf{Constructor de Equipo (Team Builder):} Permite armar un equipo de hasta 6 Pokémon con persistencia reactiva en el estado de la aplicación.
-    \item \textbf{Diseño Responsivo:} Adaptado a dispositivos móviles, tablets y monitores de escritorio.
+    \item \textbf{Consumo de API REST:} Consulta al endpoint \href{https://pokeapi.co/api/v2/pokemon?limit=151}{\texttt{https://pokeapi.co/api/v2/pokemon?limit=151}}.
+    \item \textbf{Filtrado y Búsqueda Reactiva:} Búsqueda instantánea por nombre/ID y filtrado por tipos elementales.
+    \item \textbf{Detalle Extendido (Modal):} Consulta y renderizado de estadísticas base (HP, Ataque, Defensa, etc.), habilidades, peso y altura.
+    \item \textbf{Módulo de Equipo (Team Builder):} Selección interactiva de un equipo de hasta 6 Pokémon.
+    \item \textbf{Control de Versiones y Código Limpio:} Repositorio estructurado y subido a GitHub con Conventional Commits.
 \end{itemize}
 
-% --- SECCIÓN 2: ARQUITECTURA Y TECNOLOGÍAS ---
 \section{Stack Tecnológico y Arquitectura}
 
 \begin{table}[h!]
 \centering
 \begin{tabular}{@{}lll@{}}
 \toprule
-\textbf{Capa / Rol} & \textbf{Tecnología} & \textbf{Descripción} \\ \midrule
-Frontend Framework & React 19 + TypeScript & Componentes funcionales y tipado estricto \\
-Build Tool & Vite 8 & Servidor de desarrollo ultrarrápido y empaquetado \\
-Estilos / UI & Tailwind CSS 4 & Diseño atómico utilitario y responsivo \\
-Iconografía & Lucide React & Íconos vectoriales modernos y optimizados \\
-Fuente de Datos & PokeAPI v2 & API REST pública (\texttt{/pokemon?limit=151}) \\
-Control de Versiones & Git \& GitHub & Gestión de versiones con Conventional Commits \\ \bottomrule
+\textbf{Componente / Rol} & \textbf{Tecnología} & \textbf{Propósito} \\ \midrule
+Frontend Library & React 19 + TypeScript & Componentes funcionales tipados y hooks reactivos \\
+Bundler / Dev Server & Vite 8 & Compilación rápida en ESM y HMR instantáneo \\
+Framework de Estilos & Tailwind CSS 4 & Diseño modular responsivo \\
+Iconos & Lucide React & Iconografía SVG moderna \\
+Fuente de Datos & PokeAPI v2 & Consumo REST asíncrono con caché en memoria \\
+Control de Versiones & Git \& GitHub & Gestión de ramas y flujo de trabajo \\ \bottomrule
 \end{tabular}
-\caption{Stack tecnológico del proyecto}
+\caption{Tecnologías y herramientas utilizadas}
 \end{table}
 
-% --- SECCIÓN 3: CONSUMO DE LA API ---
-\section{Consumo de la API REST}
+\section{Consumo del Endpoint PokeAPI}
 
-Para garantizar un rendimiento óptimo y no bloquear la interfaz, el servicio de conexión implementa peticiones concurrentes y caché:
+La comunicación con la API se centralizó en el módulo de servicios con soporte para caché y procesamiento por lotes para evitar bloqueos:
 
-\begin{lstlisting}[language=Java, caption={Servicio de consumo en TypeScript (\texttt{src/services/pokemonService.ts})}]
+\begin{lstlisting}[language=Java, caption={Servicio de consulta (\texttt{src/services/pokemonService.ts})}]
 const API_BASE_URL = 'https://pokeapi.co/api/v2';
 
 export async function fetchPokemonList(limit: number = 151): Promise<PokemonListResponse> {
   const response = await fetch(`${API_BASE_URL}/pokemon?limit=${limit}`);
   if (!response.ok) {
-    throw new Error(`Error ${response.status}: Failed to fetch Pokemon list`);
+    throw new Error(`Error ${response.status}: Error al obtener el listado`);
   }
   return response.json();
 }
 \end{lstlisting}
 
-% --- SECCIÓN 4: GUÍA PARA LEVANTAR EL PROYECTO ---
-\section{Instrucciones para Despliegue en Entorno Local}
+\section{Guía de Ejecución en Entorno Local}
 
-Para clonar, instalar dependencias y levantar el servidor local de desarrollo, ejecute los siguientes comandos en su terminal:
+Para clonar y desplegar el proyecto localmente, ejecute los siguientes comandos:
 
-\begin{tcolorbox}[title=\textbf{Comandos de Instalación y Ejecución}]
+\begin{tcolorbox}[title=\textbf{Comandos en Terminal}]
 \begin{lstlisting}[language=bash]
 # 1. Clonar el repositorio
 git clone https://github.com/yan2005dris-afk/Pokedex.git
 cd Pokedex
 
-# 2. Instalar dependencias (con npm o pnpm)
-pnpm install
-# o: npm install
+# 2. Instalar dependencias
+pnpm install   # o: npm install
 
-# 3. Iniciar el servidor de desarrollo local
-pnpm run dev
-# o: npm run dev
+# 3. Iniciar el servidor local
+pnpm run dev   # o: npm run dev
 \end{lstlisting}
 \end{tcolorbox}
 
-\noindent El proyecto quedará accesible localmente en la URL por defecto: \href{http://localhost:5173}{\texttt{http://localhost:5173}}.
+\noindent La aplicación estará disponible en: \href{http://localhost:5173}{\texttt{http://localhost:5173}}.
 
 \newpage
 
-% --- SECCIÓN 5: CAPTURAS DE PANTALLA Y EVIDENCIA ---
-\section{Capturas de Pantalla y Evidencia de Funcionamiento}
+% ==========================================
+%       EVIDENCIAS Y CAPTURAS DE PANTALLA
+% ==========================================
+\section{Evidencias de Funcionamiento (Capturas de Pantalla)}
 
-\noindent \textit{Nota: Inserte las capturas de pantalla de la aplicación ejecutándose en su entorno local en los siguientes recuadros.}
-
-\vspace{0.3cm}
-
-\subsection{1. Vista Principal del Catálogo (151 Pokémon y Filtros)}
+\subsection{1. Catálogo Principal de Pokémon (151 Pokémon)}
 \begin{figure}[h!]
     \centering
-    % Descomente y reemplace con la ruta a su imagen:
-    % \includegraphics[width=0.9\textwidth]{capturas/01_catalogo.png}
-    \begin{tcolorbox}[height=6cm, halign=center, valign=center, colback=gray!10, colframe=gray!50]
-        \textbf{[ Captura de Pantalla 1: Vista Principal / Listado de Pokémon ]} \\
-        \small Inserte aquí la captura del home mostrando el grid de Pokémon, barra de búsqueda y filtros.
-    \end{tcolorbox}
-    \caption{Interfaz principal con el catálogo cargado desde PokeAPI.}
+    \IfFileExists{capturas/01_catalogo.png}{
+        \includegraphics[width=0.92\textwidth]{capturas/01_catalogo.png}
+    }{
+        \begin{tcolorbox}[height=6.5cm, halign=center, valign=center, colback=gray!10, colframe=gray!50]
+            \textbf{[ Captura 1: Vista Principal / Catálogo ]} \\
+            \small Guardar imagen como \texttt{capturas/01\_catalogo.png}
+        \end{tcolorbox}
+    }
+    \caption{Interfaz inicial con el listado de Pokémon cargado desde PokeAPI.}
 \end{figure}
 
 \subsection{2. Búsqueda y Filtrado por Tipo}
 \begin{figure}[h!]
     \centering
-    % \includegraphics[width=0.9\textwidth]{capturas/02_filtros.png}
-    \begin{tcolorbox}[height=5.5cm, halign=center, valign=center, colback=gray!10, colframe=gray!50]
-        \textbf{[ Captura de Pantalla 2: Filtrado por Tipo o Búsqueda ]} \\
-        \small Inserte aquí la captura mostrando los resultados filtrados por un tipo específico (ej. Fuego / Agua) o búsqueda por texto.
-    \end{tcolorbox}
-    \caption{Resultado del filtrado reactivo en tiempo real.}
+    \IfFileExists{capturas/02_filtros.png}{
+        \includegraphics[width=0.92\textwidth]{capturas/02_filtros.png}
+    }{
+        \begin{tcolorbox}[height=6cm, halign=center, valign=center, colback=gray!10, colframe=gray!50]
+            \textbf{[ Captura 2: Búsqueda y Filtros de Tipo ]} \\
+            \small Guardar imagen como \texttt{capturas/02\_filtros.png}
+        \end{tcolorbox}
+    }
+    \caption{Resultados filtrados en tiempo real por búsqueda y categoría elemental.}
 \end{figure}
 
 \newpage
 
-\subsection{3. Vista Modal de Detalle de Pokémon}
+\subsection{3. Modal de Estadísticas y Detalle}
 \begin{figure}[h!]
     \centering
-    % \includegraphics[width=0.85\textwidth]{capturas/03_modal_detalle.png}
-    \begin{tcolorbox}[height=6.5cm, halign=center, valign=center, colback=gray!10, colframe=gray!50]
-        \textbf{[ Captura de Pantalla 3: Modal de Estadísticas Detalladas ]} \\
-        \small Inserte aquí la captura del modal abierto al hacer click sobre una tarjeta, mostrando stats, peso, altura y habilidades.
-    \end{tcolorbox}
-    \caption{Modal interactivo con datos detallados del Pokémon seleccionado.}
+    \IfFileExists{capturas/03_modal_detalle.png}{
+        \includegraphics[width=0.9\textwidth]{capturas/03_modal_detalle.png}
+    }{
+        \begin{tcolorbox}[height=6.5cm, halign=center, valign=center, colback=gray!10, colframe=gray!50]
+            \textbf{[ Captura 3: Modal de Detalle de Pokémon ]} \\
+            \small Guardar imagen como \texttt{capturas/03\_modal\_detalle.png}
+        \end{tcolorbox}
+    }
+    \caption{Detalle extendido con atributos de combate, peso, altura y habilidades.}
 \end{figure}
 
-\subsection{4. Panel del Equipo Pokémon (Team Drawer)}
+\subsection{4. Panel de Gestión de Equipo (Team Drawer)}
 \begin{figure}[h!]
     \centering
-    % \includegraphics[width=0.85\textwidth]{capturas/04_team_drawer.png}
-    \begin{tcolorbox}[height=6cm, halign=center, valign=center, colback=gray!10, colframe=gray!50]
-        \textbf{[ Captura de Pantalla 4: Gestión de Equipo (Team Drawer) ]} \\
-        \small Inserte aquí la captura del panel lateral con los Pokémon seleccionados en el equipo de 6.
-    \end{tcolorbox}
-    \caption{Módulo de gestión y visualización del equipo Pokémon.}
+    \IfFileExists{capturas/04_team_drawer.png}{
+        \includegraphics[width=0.9\textwidth]{capturas/04_team_drawer.png}
+    }{
+        \begin{tcolorbox}[height=6.5cm, halign=center, valign=center, colback=gray!10, colframe=gray!50]
+            \textbf{[ Captura 4: Team Drawer / Equipo Pokémon ]} \\
+            \small Guardar imagen como \texttt{capturas/04\_team\_drawer.png}
+        \end{tcolorbox}
+    }
+    \caption{Panel interactivo con el equipo de Pokémon seleccionado.}
 \end{figure}
 
-% --- SECCIÓN 6: CONCLUSIONES ---
 \section{Conclusiones}
 \begin{itemize}[leftmargin=*]
-    \item La separación en capas (servicios, componentes UI, tipos TypeScript) permitió un código modular, mantenible y escalable.
-    \item El manejo asíncrono con control de concurrencia y caché garantiza una experiencia fluida sin cuellos de botella ni bloqueos de red al consultar la API externa.
+    \item Se implementó con éxito el consumo asíncrono del endpoint \texttt{/pokemon?limit=151} de PokéAPI, optimizando la carga mediante memoria caché.
+    \item La arquitectura de componentes en React 19 junto con TypeScript garantiza robustez en el tipado de los datos y facilidad de mantenimiento.
 \end{itemize}
 
 \end{document}
