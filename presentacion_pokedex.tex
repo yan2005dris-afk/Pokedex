@@ -63,47 +63,45 @@
 \begin{titlepage}
     \centering
     \IfFileExists{logo_upse.png}{
-        \includegraphics[width=0.32\textwidth]{logo_upse.png}\\[0.4cm]
+        \includegraphics[width=0.28\textwidth]{logo_upse.png}\\[0.6cm]
     }{
-        \vspace*{1cm}
+        \vspace*{0.8cm}
     }
     
-    {\Large \textbf{UNIVERSIDAD ESTATAL PENÍNSULA DE SANTA ELENA}}\\[0.2cm]
-    {\large \textbf{FACULTAD DE SISTEMAS Y TELECOMUNICACIONES}}\\[0.2cm]
-    {\large \textbf{CARRERA DE SOFTWARE}}\\[0.8cm]
+    {\Large \textbf{UNIVERSIDAD ESTATAL PENÍNSULA DE SANTA ELENA}}\\[0.25cm]
+    {\normalsize \textbf{FACULTAD DE SISTEMAS Y TELECOMUNICACIONES}}\\[0.15cm]
+    {\normalsize \textbf{CARRERA DE SOFTWARE}}\\[1.8cm]
     
-    \rule{\linewidth}{1.5pt}\\[0.4cm]
-    {\large \textbf{ASIGNATURA:}} \\[0.1cm]
-    {\Large \textbf{\color{upseBlue} FRAMEWORK}}\\[0.4cm]
+    {\normalsize \textbf{ASIGNATURA:}}\\[0.1cm]
+    {\normalsize FRAMEWORK}\\[0.8cm]
     
-    {\large \textbf{TEMA:}} \\[0.1cm]
-    {\Large \textbf{Desarrollo de Interfaz en React con Consumo de PokéAPI}}\\[0.3cm]
-    \rule{\linewidth}{1.5pt}\\[1cm]
+    {\normalsize \textbf{TEMA:}}\\[0.1cm]
+    {\normalsize DESARROLLO DE INTERFAZ EN REACT CONSUMIENDO DATOS DESDE POKEAPI}\\[1.6cm]
     
-    \begin{minipage}{0.9\textwidth}
-        \large
+    \begin{minipage}{0.88\textwidth}
+        \normalsize
         \textbf{ELABORADO POR:} \\[0.1cm]
-        \hspace*{0.5cm} RIVERA TORRES YANDRIS MIGUEL \\[0.4cm]
+        RIVERA TORRES YANDRIS MIGUEL \\[0.5cm]
         \textbf{CURSO Y PARALELO:} \\[0.1cm]
-        \hspace*{0.5cm} SOFTWARE 7/1 \\[0.4cm]
+        SOFTWARE 7/1 \\[0.5cm]
         \textbf{DOCENTE:} \\[0.1cm]
-        \hspace*{0.5cm} ING. CARLOS EDUARDO MUÑOZ MENDOZA \\[0.4cm]
+        ING. CARLOS EDUARDO MUÑOZ MENDOZA \\[0.5cm]
         \textbf{REPOSITORIO GITHUB:} \\[0.1cm]
-        \hspace*{0.5cm} \href{https://github.com/yan2005dris-afk/Pokedex.git}{\texttt{https://github.com/yan2005dris-afk/Pokedex.git}}
+        \href{https://github.com/yan2005dris-afk/Pokedex.git}{\texttt{https://github.com/yan2005dris-afk/Pokedex.git}}
     \end{minipage}
     
     \vfill
-    {\textbf{LA LIBERTAD -- ECUADOR}}\\[0.1cm]
-    {\textbf{2026}}
+    {\normalsize \textbf{LA LIBERTAD -- ECUADOR}}\\[0.1cm]
+    {\normalsize \textbf{2026}}
 \end{titlepage}
 
 % --- Estilos de Cabecera y Pie de Página ---
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\textbf{UPSE} | Framework - React PokéAPI}
-\fancyhead[R]{\thepage}
+\fancyhead[L]{\footnotesize \textbf{UPSE} | Framework - React PokéAPI}
+\fancyhead[R]{\footnotesize \thepage}
 \fancyfoot[C]{\footnotesize Carrera de Software -- Universidad Estatal Península de Santa Elena}
-\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\headrulewidth}{0.6pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
 % ==========================================
@@ -112,15 +110,15 @@
 
 \section{Introducción y Objetivos del Proyecto}
 
-El objetivo de esta práctica es desarrollar una aplicación web interactiva utilizando el framework \textbf{React 19} con \textbf{TypeScript} y \textbf{Tailwind CSS 4} montado sobre \textbf{Vite}. La interfaz consume los datos en tiempo real de la API pública REST de Pokémon (\textit{PokéAPI}), gestionando la consulta y renderizado de los primeros \textbf{151 Pokémon}.
+El objetivo de esta práctica es desarrollar una aplicación web interactiva utilizando el framework \textbf{React 19} con \textbf{TypeScript} y \textbf{Tailwind CSS 4} empaquetado con \textbf{Vite}. La interfaz consume los datos en tiempo real de la API pública REST de Pokémon (\textit{PokéAPI}), gestionando la consulta y renderizado de los primeros \textbf{151 Pokémon}.
 
 \subsection*{Requisitos Cumplidos}
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Consumo de API REST:} Consulta al endpoint \href{https://pokeapi.co/api/v2/pokemon?limit=151}{\texttt{https://pokeapi.co/api/v2/pokemon?limit=151}}.
+    \item \textbf{Consumo de API REST:} Consulta directa al endpoint \href{https://pokeapi.co/api/v2/pokemon?limit=151}{\texttt{https://pokeapi.co/api/v2/pokemon?limit=151}}.
     \item \textbf{Filtrado y Búsqueda Reactiva:} Búsqueda instantánea por nombre/ID y filtrado por tipos elementales.
     \item \textbf{Detalle Extendido (Modal):} Consulta y renderizado de estadísticas base (HP, Ataque, Defensa, etc.), habilidades, peso y altura.
     \item \textbf{Módulo de Equipo (Team Builder):} Selección interactiva de un equipo de hasta 6 Pokémon.
-    \item \textbf{Control de Versiones y Código Limpio:} Repositorio estructurado y subido a GitHub con Conventional Commits.
+    \item \textbf{Control de Versiones:} Repositorio en GitHub con commits semánticos y estructurado.
 \end{itemize}
 
 \section{Stack Tecnológico y Arquitectura}
